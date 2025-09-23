@@ -6,25 +6,6 @@ import { fadeIn } from "../../variants";
 import { useState } from "react";
 
 const Contact = () => {
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    setIsLoading(true);
-
-    const myForm = event.target;
-    const formData = new FormData(myForm);
-
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: new URLSearchParams(formData).toString(),
-    })
-      .then(() => alert("Thank you. I will get back to you ASAP."))
-      .catch((error) => console.log(error))
-      .finally(() => setIsLoading(false));
-  };
-
   const contactInfo = [
     {
       icon: HiMail,
@@ -114,8 +95,7 @@ const Contact = () => {
                   color: "#aaa",
                   textAlign: "center",
                 }}
-              >
-              </a>
+              ></a>
               <a
                 href="http://localhost:3001/Rangdal_Pavansai_resume.pdf"
                 download
@@ -124,8 +104,7 @@ const Contact = () => {
                   color: "#aaa",
                   textAlign: "center",
                 }}
-              >
-              </a>
+              ></a>
             </div>
           </motion.div>
 
@@ -136,7 +115,6 @@ const Contact = () => {
             animate="show"
             exit="hidden"
             className="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto"
-            onSubmit={handleSubmit}
             autoComplete="off"
             autoCapitalize="off"
             data-netlify="true"
@@ -148,8 +126,6 @@ const Contact = () => {
                 name="name"
                 placeholder="Name"
                 className="input flex-1"
-                disabled={isLoading}
-                aria-disabled={isLoading}
                 required
                 aria-required
               />
@@ -158,8 +134,6 @@ const Contact = () => {
                 name="email"
                 placeholder="E-mail"
                 className="input flex-1"
-                disabled={isLoading}
-                aria-disabled={isLoading}
                 required
                 aria-required
               />
@@ -169,8 +143,6 @@ const Contact = () => {
               name="subject"
               placeholder="Subject"
               className="input"
-              disabled={isLoading}
-              aria-disabled={isLoading}
               required
               aria-required
             />
@@ -178,19 +150,15 @@ const Contact = () => {
               name="message"
               placeholder="Message..."
               className="textarea min-h-[120px] sm:min-h-[180px]"
-              disabled={isLoading}
-              aria-disabled={isLoading}
               required
               aria-required
             />
             <button
               type="submit"
               className="btn rounded-full border border-white/50 w-full sm:w-auto sm:max-w-[170px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group text-sm sm:text-base mx-auto"
-              disabled={isLoading}
-              aria-disabled={isLoading}
             >
               <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                {isLoading ? "Sending..." : "Let's talk"}
+                Let's talk
               </span>
 
               <BsArrowRight
