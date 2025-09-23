@@ -33,7 +33,7 @@ const Contact = () => {
   return (
     <>
       {/* Netlify hidden form for build-time detection */}
-      <form name="contact" netlify="true" hidden>
+      <form name="contact" data-netlify="true" hidden>
         <input type="text" name="name" />
         <input type="email" name="email" />
         <input type="text" name="subject" />
@@ -123,11 +123,9 @@ const Contact = () => {
               animate="show"
               exit="hidden"
               className="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto"
-              autoComplete="off"
-              autoCapitalize="off"
+              name="contact"
+              method="POST"
               data-netlify="true"
-              netlify
-              action="/contact"
             >
               {/* input group */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
