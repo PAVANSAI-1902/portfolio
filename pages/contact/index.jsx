@@ -6,6 +6,33 @@ import { fadeIn } from "../../variants";
 import { useState } from "react";
 
 const Contact = () => {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    const formData = new FormData(event.target);
+
+    try {
+      await fetch("/__forms.html", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: new URLSearchParams(formData).toString(),
+      });
+
+      setIsSubmitted(true);
+      event.target.reset();
+    } catch (error) {
+      setSubmitError("Failed to send message. Please try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   const contactInfo = [
     {
       icon: HiMail,
@@ -32,13 +59,6 @@ const Contact = () => {
 
   return (
     <>
-      {/* Netlify hidden form for build-time detection */}
-      <form name="contact" data-netlify="true" hidden>
-        <input type="text" name="name" />
-        <input type="email" name="email" />
-        <input type="text" name="subject" />
-        <textarea name="message"></textarea>
-      </form>
       <div className="min-h-screen bg-primary/30 px-4 sm:px-6 lg:px-8">
         <div className="container mx-auto py-20 sm:py-24 md:py-28 lg:py-32 text-center xl:text-left flex items-center justify-center min-h-screen">
           <div className="flex flex-col w-full max-w-[700px]">
@@ -124,9 +144,24 @@ const Contact = () => {
               exit="hidden"
               className="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto"
               name="contact"
-              method="POST"
-              data-netlify="true"
+              onSubmit={handleFormSubmit}
             >
+              <input type="hidden" name="form-name" value="contact" />
+
+              {/* Success message */}
+              {isSubmitted && (
+                <div className="bg-green-500/20 border border-green-500 rounded-lg p-4 text-green-300">
+                  Thank you! Your message has been sent successfully.
+                </div>
+              )}
+
+              {/* Error message */}
+              {submitError && (
+                <div className="bg-red-500/20 border border-red-500 rounded-lg p-4 text-red-300">
+                  {submitError}
+                </div>
+              )}
+
               {/* input group */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
                 <input
@@ -136,6 +171,7 @@ const Contact = () => {
                   className="input flex-1"
                   required
                   aria-required
+                  disabled={isSubmitting}
                 />
                 <input
                   type="email"
@@ -144,6 +180,7 @@ const Contact = () => {
                   className="input flex-1"
                   required
                   aria-required
+                  disabled={isSubmitting}
                 />
               </div>
               <input
@@ -153,6 +190,7 @@ const Contact = () => {
                 className="input"
                 required
                 aria-required
+                disabled={isSubmitting}
               />
               <textarea
                 name="message"
@@ -160,13 +198,19 @@ const Contact = () => {
                 className="textarea min-h-[120px] sm:min-h-[180px]"
                 required
                 aria-required
+                disabled={isSubmitting}
               />
               <button
                 type="submit"
-                className="btn rounded-full border border-white/50 w-full sm:w-auto sm:max-w-[170px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group text-sm sm:text-base mx-auto"
+                disabled={isSubmitting || isSubmitted}
+                className="btn rounded-full border border-white/50 w-full sm:w-auto sm:max-w-[170px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group text-sm sm:text-base mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                  Let&apos;s talk
+                  {isSubmitting
+                    ? "Sending..."
+                    : isSubmitted
+                    ? "Sent!"
+                    : "Let's talk"}
                 </span>
 
                 <BsArrowRight
