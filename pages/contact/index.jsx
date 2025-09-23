@@ -158,7 +158,7 @@ const Contact = () => {
               className="btn rounded-full border border-white/50 w-full sm:w-auto sm:max-w-[170px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group text-sm sm:text-base mx-auto"
             >
               <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                Let's talk
+                Let&apos;s talk
               </span>
 
               <BsArrowRight
