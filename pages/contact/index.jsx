@@ -126,6 +126,7 @@ const Contact = () => {
               autoComplete="off"
               autoCapitalize="off"
               data-netlify="true"
+              netlify
               action="/contact"
             >
               {/* input group */}
