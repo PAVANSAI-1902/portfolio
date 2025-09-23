@@ -28,38 +28,45 @@ const Nav = () => {
   const pathname = usePathname();
 
   return (
-    <nav className="flex flex-col items-center xl:justify-center gap-y-4 fixed h-max bottom-0 mt-auto xl:right-[2%] z-50 top-0 w-full xl:w-16 xl:max-w-md xl:h-screen">
-      <div className="flex w-full xl:flex-col items-center justify-center xl:justify-center gap-x-2 sm:gap-x-4 md:gap-x-6 xl:gap-y-10 px-2 sm:px-4 md:px-8 lg:px-16 xl:px-0 h-[70px] sm:h-[80px] xl:h-max py-4 sm:py-6 xl:py-8 bg-white/10 backdrop-blur-sm text-xl sm:text-2xl md:text-3xl xl:text-xl xl:rounded-full">
+    <nav className="fixed bottom-0 left-0 right-0 xl:right-8 xl:top-1/2 xl:transform xl:-translate-y-1/2 xl:left-auto xl:bottom-auto z-50 xl:w-20">
+      <div className="flex xl:flex-col items-center justify-center xl:justify-center gap-x-1 xl:gap-y-4 px-4 xl:px-0 h-20 xl:h-auto py-4 xl:py-6 bg-white/10 xl:bg-black/40 backdrop-blur-md xl:rounded-2xl border-t xl:border border-white/20 xl:border-white/10 xl:shadow-2xl">
         {navData.map((link, i) => (
           <Link
             className={`${
-              link.path === pathname && "text-accent"
-            } relative flex items-center group hover:text-accent transition-all duration-300 p-2 sm:p-3 xl:p-2 rounded-lg hover:bg-white/10`}
+              link.path === pathname
+                ? "text-white bg-accent border-accent shadow-lg shadow-accent/30"
+                : "text-white/70 hover:text-accent border-white/20 hover:border-accent/50 hover:bg-white/10"
+            } relative flex flex-col xl:flex-row items-center justify-center group transition-all duration-300 p-3 xl:p-4 rounded-xl border-2 min-w-[60px] xl:min-w-[64px]`}
             href={link.path}
             key={i}
           >
-            {/* tooltip */}
+            {/* tooltip for desktop */}
             <div
               role="tooltip"
-              className="absolute pr-14 right-0 hidden xl:group-hover:flex"
+              className="absolute pr-16 right-0 hidden xl:group-hover:flex"
             >
-              <div className="bg-white relative flex text-primary items-center p-[6px] rounded-[3px]">
-                <div className="text-[12px] leading-none font-semibold capitalize">
+              <div className="bg-white relative flex text-primary items-center px-3 py-2 rounded-lg shadow-lg">
+                <div className="text-sm font-semibold capitalize whitespace-nowrap">
                   {link.name}
                 </div>
-
                 {/* triangle */}
                 <div
-                  className="border-solid border-l-white border-l-8 border-y-transparent border-y-[6px] border-r-0 absolute -right-2"
+                  className="border-solid border-l-white border-l-8 border-y-transparent border-y-[8px] border-r-0 absolute -right-2"
                   aria-hidden
                 />
               </div>
             </div>
 
             {/* icon */}
-            <div className="flex items-center justify-center">
-              <link.Icon aria-hidden className="w-5 h-5 sm:w-6 sm:h-6 md:w-7 md:h-7 xl:w-5 xl:h-5" />
-            </div>
+            <link.Icon
+              aria-hidden
+              className="w-6 h-6 xl:w-7 xl:h-7 mb-1 xl:mb-0"
+            />
+
+            {/* label for mobile */}
+            <span className="text-xs xl:hidden font-medium capitalize leading-none">
+              {link.name === "open source" ? "Open" : link.name}
+            </span>
           </Link>
         ))}
       </div>

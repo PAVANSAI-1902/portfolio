@@ -217,11 +217,11 @@ const OpenSource = () => {
             <h3 className="text-lg sm:text-xl font-semibold mb-4 sm:mb-6">Open Source Impact</h3>
             <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 sm:gap-8">
               <div>
-                <div className="text-2xl sm:text-3xl font-bold text-accent mb-1 sm:mb-2">15+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-accent mb-1 sm:mb-2">2+</div>
                 <div className="text-white/60 text-sm sm:text-base">Projects Contributed</div>
               </div>
               <div>
-                <div className="text-2xl sm:text-3xl font-bold text-accent mb-1 sm:mb-2">50+</div>
+                <div className="text-2xl sm:text-3xl font-bold text-accent mb-1 sm:mb-2">5+</div>
                 <div className="text-white/60 text-sm sm:text-base">Pull Requests</div>
               </div>
               <div>

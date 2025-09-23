@@ -10,7 +10,7 @@ import { fadeIn } from "../variants";
 
 const Home = () => {
   return (
-    <div className="relative min-h-screen w-full overflow-hidden bg-primary/60">
+    <div className="relative min-h-screen w-full bg-primary/60">
       {/* background and particles */}
       <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-primary/10 via-black/30 to-black/10 -z-10" />
       <ParticlesContainer />
@@ -21,14 +21,14 @@ const Home = () => {
         initial="hidden"
         animate="show"
         exit="hidden"
-        className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 lg:top-12 lg:right-12 xl:top-16 xl:right-16 z-20"
+        className="absolute top-4 right-4 sm:top-6 sm:right-6 md:top-8 md:right-8 lg:top-12 lg:right-12 xl:top-16 xl:right-16 z-[100]"
       >
         <Socials />
       </motion.div>
 
-      <div className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center px-4 sm:px-6 lg:px-8 xl:px-12 py-6 sm:py-8 lg:py-12 gap-6 sm:gap-8 lg:gap-12 xl:gap-16">
+      <div className="min-h-screen w-full flex flex-col lg:flex-row items-center justify-center px-6 sm:px-8 lg:px-16 pt-24 pb-32 lg:pt-20 lg:pb-20 gap-12 lg:gap-20">
         {/* Left: Logo, Title, Intro, Buttons */}
-        <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left z-10 w-full max-w-2xl lg:max-w-none justify-center space-y-4 sm:space-y-6 lg:space-y-8">
+        <div className="flex-1 flex flex-col items-center lg:items-start text-center lg:text-left z-10 w-full max-w-2xl lg:max-w-none justify-center space-y-8">
           {/* Logo and Name */}
           <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 lg:gap-6 w-full justify-center lg:justify-start">
             <Image
@@ -36,7 +36,7 @@ const Home = () => {
               alt="Pavansai Rangdal Logo"
               width={120}
               height={120}
-              className="w-20 h-20 sm:w-24 sm:h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 xl:w-36 xl:h-36 2xl:w-40 2xl:h-40 rounded-xl border-2 border-accent bg-black/80 shadow-xl flex-shrink-0 hover:scale-105 transition-transform duration-300"
+              className="w-32 h-32 sm:w-40 sm:h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-2xl border-4 border-accent bg-black/80 shadow-2xl flex-shrink-0 hover:scale-105 transition-transform duration-300"
               priority
             />
             <motion.h1
@@ -44,7 +44,7 @@ const Home = () => {
               initial="hidden"
               animate="show"
               exit="hidden"
-              className="font-extrabold text-accent mb-0 leading-tight text-2xl sm:text-3xl md:text-4xl lg:text-5xl xl:text-6xl 2xl:text-7xl"
+              className="font-extrabold text-accent mb-0 leading-tight text-4xl sm:text-5xl md:text-6xl lg:text-7xl"
             >
               Pavansai <br className="hidden sm:block lg:hidden xl:block" />{" "}
               <span className="text-white">Rangdal</span>
@@ -57,7 +57,7 @@ const Home = () => {
             initial="hidden"
             animate="show"
             exit="hidden"
-            className="max-w-full text-gray-200 text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl font-medium leading-relaxed px-2 sm:px-0"
+            className="max-w-full text-gray-200 text-lg sm:text-xl md:text-2xl font-medium leading-relaxed"
           >
             A passionate computer science student focused on{" "}
             <span className="text-accent font-semibold">Machine Learning</span>,{" "}
@@ -124,8 +124,7 @@ const Home = () => {
                   color: "#aaa",
                   textAlign: "center",
                 }}
-              >
-              </a>
+              ></a>
               <a
                 href="http://localhost:3001/Rangdal_Pavansai_resume.pdf"
                 download
@@ -135,8 +134,7 @@ const Home = () => {
                   color: "#aaa",
                   textAlign: "center",
                 }}
-              >
-              </a>
+              ></a>
             </div>
             <Link href="/contact" className="w-full sm:w-auto">
               <button className="btn rounded-full border-2 border-white/50 w-full sm:w-auto sm:min-w-[160px] lg:min-w-[180px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent hover:bg-accent/10 group text-sm sm:text-base lg:text-lg font-medium">
