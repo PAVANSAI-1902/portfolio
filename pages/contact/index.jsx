@@ -31,7 +31,7 @@ const Contact = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-primary/30 px-4 sm:px-6 lg:px-8">
+  <>
       {/* Netlify hidden form for build-time detection */}
       <form name="contact" netlify="true" hidden>
         <input type="text" name="name" />
@@ -39,6 +39,7 @@ const Contact = () => {
         <input type="text" name="subject" />
         <textarea name="message"></textarea>
       </form>
+      <div className="min-h-screen bg-primary/30 px-4 sm:px-6 lg:px-8">
       <div className="container mx-auto py-20 sm:py-24 md:py-28 lg:py-32 text-center xl:text-left flex items-center justify-center min-h-screen">
         <div className="flex flex-col w-full max-w-[700px]">
           {/* text */}
@@ -200,6 +201,8 @@ const Contact = () => {
         </div>
       </div>
     </div>
+  );
+    </>
   );
 };
 
