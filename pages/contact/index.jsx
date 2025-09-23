@@ -126,6 +126,7 @@ const Contact = () => {
               autoComplete="off"
               autoCapitalize="off"
               data-netlify="true"
+              action="/contact"
             >
               {/* input group */}
               <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
