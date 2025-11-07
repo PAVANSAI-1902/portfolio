@@ -3,7 +3,13 @@ import { promises as fs } from "fs";
 import path from "path";
 
 export async function GET() {
-  const filePath = path.join(process.cwd(), "app", "docs", "static", "llms.txt");
+  const filePath = path.join(
+    process.cwd(),
+    "app",
+    "docs",
+    "static",
+    "llms.txt"
+  );
   try {
     const fileContents = await fs.readFile(filePath, "utf8");
     return new NextResponse(fileContents, {
