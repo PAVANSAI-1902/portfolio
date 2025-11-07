@@ -17,7 +17,7 @@ const projectData = [
     description: "ML model to predict car purchase rates using customer data",
     techStack: ["Python", "TensorFlow", "Scikit-learn", "Pandas", "Streamlit"],
     demoLink: "#",
-    githubLink: "https://github.com/Pavansai20054/Car_purchase_rate_Estimation_using_ANN",
+    githubLink: "https://github.com/Pavansai20054/car-purchase-prediction",
     problem: "Predicting customer car purchase probability based on demographic and behavioral data",
     approach: "Used Artificial Neural Networks with feature engineering and data preprocessing",
     mlModel: "ANN with multiple hidden layers, optimized using Adam optimizer",
@@ -32,7 +32,7 @@ const projectData = [
     description: "Multilingual text-to-speech application with natural voice synthesis",
     techStack: ["Python", "gTTS", "Tkinter", "PyAudio", "NLTK"],
     demoLink: "#",
-    githubLink: "https://github.com/Pavansai20054/gTTS",
+    githubLink: "https://github.com/Pavansai20054/xara-tts",
     problem: "Creating a user-friendly multilingual text-to-speech application",
     approach: "Built a desktop application with support for multiple languages and voice customization",
     mlModel: "Google Text-to-Speech (gTTS) with natural language processing",
@@ -62,7 +62,7 @@ const projectData = [
     description: "Comprehensive data structures and algorithms library for Python",
     techStack: ["Python", "NumPy", "Matplotlib", "Pytest", "Sphinx"],
     demoLink: "https://pypi.org/project/datastruct-kit/",
-    githubLink: "https://github.com/Pavansai20054/DataStruct-Kit",
+    githubLink: "https://github.com/Pavansai20054/datastruct-kit",
     problem: "Providing easy-to-use data structures and algorithms for Python developers",
     approach: "Created a comprehensive library with well-documented implementations",
     mlModel: "N/A - Data structures library",
@@ -73,7 +73,7 @@ const projectData = [
   },
   {
     title: "logictools (Python Package)",
-    image: "/thumb5.jpg",
+    image: "/thumb1.jpg",
     description: "Logic gate simulation and digital circuit design toolkit",
     techStack: ["Python", "NetworkX", "Matplotlib", "Pytest", "Sphinx"],
     demoLink: "https://pypi.org/project/logictools/",
@@ -84,22 +84,22 @@ const projectData = [
     challenges: "Creating intuitive API and efficient circuit evaluation",
     solutions: "Designed clean API with graph-based circuit representation",
     deployment: "Published on PyPI with comprehensive documentation",
-    screenshots: ["/thumb5.jpg", "/thumb6.jpg"]
+    screenshots: ["/thumb1.jpg", "/thumb2.jpg"]
   },
   {
     title: "Prodigal Automation (Open Source)",
-    image: "/thumb6.jpg",
+    image: "/thumb2.jpg",
     description: "Contributing to open-source automation tools and workflows",
     techStack: ["Python", "GitHub Actions", "Docker", "CI/CD", "Automation"],
     demoLink: "#",
-    githubLink: "https://github.com/Pavansai20054/prodigal-automation",
+    githubLink: "https://github.com/orgs/prodigal-automation",
     problem: "Improving automation workflows and developer experience",
     approach: "Active contribution to open-source automation projects",
     mlModel: "N/A - Automation tools",
     challenges: "Understanding complex codebases and maintaining backward compatibility",
     solutions: "Thorough code review and incremental improvements",
     deployment: "Continuous integration with automated testing and deployment",
-    screenshots: ["/thumb6.jpg", "/thumb1.jpg"]
+    screenshots: ["/thumb2.jpg", "/thumb3.jpg"]
   }
 ];
 

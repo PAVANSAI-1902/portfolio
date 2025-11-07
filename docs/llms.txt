@@ -1,0 +1,33 @@
+# Pavansai Rangdal | Portfolio
+
+Pavansai Rangdal is a passionate computer science student focused on Machine Learning, Generative AI, and Agentic AI.
+
+## Home
+[homehome](https://rangdal-pavansai.netlify.app/): This is the main landing page of Pavansai Rangdal's portfolio, providing an overview of his work and interests in the field of computer science.
+
+## Projects
+[projectsprojects](https://rangdal-pavansai.netlify.app/projects/): This section showcases various projects undertaken by Pavansai, highlighting his skills and applications in Machine Learning and AI.
+
+## Packages
+[packagespackages](https://rangdal-pavansai.netlify.app/packages/): Here, you can find a collection of software packages developed by Pavansai, which may include libraries or tools related to his areas of expertise.
+
+## Open Source
+[open sourceOpen](https://rangdal-pavansai.netlify.app/open-source/): This page details Pavansai's contributions to open-source projects, emphasizing his commitment to collaborative software development and community engagement.
+
+## Contact
+[contactcontact](https://rangdal-pavansai.netlify.app/contact/): This section provides contact information for reaching out to Pavansai, whether for inquiries, collaborations, or networking opportunities.
+
+## Social Media
+[Instagram](https://www.instagram.com/pavansai_rangdal/): Follow Pavansai on Instagram for updates and insights into his work and interests.
+
+[Facebook](https://www.facebook.com/rangdal.pavansai): Connect with Pavansai on Facebook to stay informed about his latest projects and activities.
+
+[LinkedIn](https://www.linkedin.com/in/rangdal-pavansai): View Pavansai's professional profile on LinkedIn to learn more about his academic background and career aspirations.
+
+[Github](https://www.github.com/Pavansai20054): Explore Pavansai's GitHub repository to access his code, projects, and contributions to the programming community.
+
+## Resume
+[Download ResumeDownload Resume](https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf): Download Pavansai's resume to review his qualifications, skills, and experiences in detail.
+
+## Additional Links
+[No Title](https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf): This link appears to be a placeholder and does not provide specific content.

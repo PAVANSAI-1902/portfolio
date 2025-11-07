@@ -34,7 +34,7 @@ g.add_edge('C', 'A')`,
       "Academic projects and research"
     ],
     githubLink: "https://github.com/Pavansai20054/datastruct-kit",
-    docsLink: "https://pypi.org/project/DataStruct-Kit/#description",
+    docsLink: "https://datastruct-kit.readthedocs.io/",
     pypiLink: "https://pypi.org/project/datastruct-kit/"
   },
   {
@@ -67,7 +67,7 @@ result = circuit.evaluate({
       "Logic gate visualization"
     ],
     githubLink: "https://github.com/Pavansai20054/logictools",
-    docsLink: "https://pypi.org/project/logictools/#description",
+    docsLink: "https://logictools.readthedocs.io/",
     pypiLink: "https://pypi.org/project/logictools/"
   }
 ];
@@ -217,7 +217,7 @@ const Packages = () => {
                 View All Projects
               </a>
               <a
-                href="https://pypi.org/user/RANGDAL_PAVANSAI/"
+                href="https://pypi.org/user/Pavansai20054/"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="bg-accent text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg hover:bg-accent/80 transition-all text-sm sm:text-base"

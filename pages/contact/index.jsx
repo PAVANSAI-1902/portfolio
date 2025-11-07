@@ -6,31 +6,23 @@ import { fadeIn } from "../../variants";
 import { useState } from "react";
 
 const Contact = () => {
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
-  const [submitError, setSubmitError] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleFormSubmit = async (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
-    setSubmitError(null);
+    setIsLoading(true);
 
-    const formData = new FormData(event.target);
+    const myForm = event.target;
+    const formData = new FormData(myForm);
 
-    try {
-      await fetch("/__forms.html", {
-        method: "POST",
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString(),
-      });
-
-      setIsSubmitted(true);
-      event.target.reset();
-    } catch (error) {
-      setSubmitError("Failed to send message. Please try again.");
-    } finally {
-      setIsSubmitting(false);
-    }
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString(),
+    })
+      .then(() => alert("Thank you. I will get back to you ASAP."))
+      .catch((error) => console.log(error))
+      .finally(() => setIsLoading(false));
   };
 
   const contactInfo = [
@@ -58,195 +50,161 @@ const Contact = () => {
   ];
 
   return (
-    <>
-      <div className="min-h-screen bg-primary/30 px-4 sm:px-6 lg:px-8">
-        <div className="container mx-auto py-20 sm:py-24 md:py-28 lg:py-32 text-center xl:text-left flex items-center justify-center min-h-screen">
-          <div className="flex flex-col w-full max-w-[700px]">
-            {/* text */}
-            <motion.h2
-              variants={fadeIn("up", 0.2)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="h2 mb-6 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold"
-            >
-              Let&apos;s <span className="text-green-500">connect</span>.
-            </motion.h2>
+    <div className="min-h-screen bg-primary/30 px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto py-20 sm:py-24 md:py-28 lg:py-32 text-center xl:text-left flex items-center justify-center min-h-screen">
+        <div className="flex flex-col w-full max-w-[700px]">
+          {/* text */}
+          <motion.h2
+            variants={fadeIn("up", 0.2)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="h2 mb-6 sm:mb-8 text-3xl sm:text-4xl md:text-5xl lg:text-6xl text-center font-bold"
+          >
+            Let&apos;s <span className="text-green-500">connect</span>.
+          </motion.h2>
 
-            {/* Contact Info */}
-            <motion.div
-              variants={fadeIn("up", 0.3)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="mb-8 sm:mb-12"
-            >
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
-                {contactInfo.map((info, index) => (
-                  <a
-                    key={index}
-                    href={info.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-white/15 transition-all duration-300 group"
-                  >
-                    <div className="flex flex-col items-center text-center">
-                      <info.icon
-                        className={`text-2xl sm:text-3xl mb-2 sm:mb-3 ${info.color} group-hover:scale-110 transition-transform`}
-                      />
-                      <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
-                        {info.title}
-                      </h3>
-                      <p className="text-white/60 text-xs sm:text-sm break-all">
-                        {info.value}
-                      </p>
-                    </div>
-                  </a>
-                ))}
-              </div>
-
-              {/* Download Resume */}
-              <div className="text-center mb-6 sm:mb-8 flex flex-col items-center gap-1">
+          {/* Contact Info */}
+          <motion.div
+            variants={fadeIn("up", 0.3)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="mb-8 sm:mb-12"
+          >
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
+              {contactInfo.map((info, index) => (
                 <a
-                  href="/Rangdal_Pavansai_resume.pdf"
-                  download
-                  className="bg-accent text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-accent/80 transition-all inline-flex items-center gap-2 text-sm sm:text-base"
+                  key={index}
+                  href={info.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6 hover:bg-white/15 transition-all duration-300 group"
                 >
-                  <span>Download Resume</span>
-                  <BsArrowRight />
+                  <div className="flex flex-col items-center text-center">
+                    <info.icon
+                      className={`text-2xl sm:text-3xl mb-2 sm:mb-3 ${info.color} group-hover:scale-110 transition-transform`}
+                    />
+                    <h3 className="font-semibold mb-1 sm:mb-2 text-sm sm:text-base">
+                      {info.title}
+                    </h3>
+                    <p className="text-white/60 text-xs sm:text-sm break-all">
+                      {info.value}
+                    </p>
+                  </div>
                 </a>
-                <a
-                  href="https://rangdal-pavansai.vercel.app/Rangdal_Pavansai_resume.pdf"
-                  download
-                  style={{
-                    fontSize: "0.8em",
-                    color: "#aaa",
-                    textAlign: "center",
-                  }}
-                ></a>
-                <a
-                  href="http://localhost:3001/Rangdal_Pavansai_resume.pdf"
-                  download
-                  style={{
-                    fontSize: "0.8em",
-                    color: "#aaa",
-                    textAlign: "center",
-                  }}
-                ></a>
-              </div>
-            </motion.div>
+              ))}
+            </div>
 
-            {/* form */}
-            <motion.form
-              variants={fadeIn("up", 0.4)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto"
-              name="contact"
-              onSubmit={handleFormSubmit}
-            >
-              <input type="hidden" name="form-name" value="contact" />
+            {/* Download Resume */}
+            <div className="text-center mb-6 sm:mb-8">
+              <a
+                href="/Rangdal_Pavansai_resume.pdf"
+                download
+                className="bg-accent text-white px-6 sm:px-8 py-2 sm:py-3 rounded-lg hover:bg-accent/80 transition-all inline-flex items-center gap-2 text-sm sm:text-base"
+              >
+                <span>Download Resume</span>
+                <BsArrowRight />
+              </a>
+            </div>
+          </motion.div>
 
-              {/* Success message */}
-              {isSubmitted && (
-                <div className="bg-green-500/20 border border-green-500 rounded-lg p-4 text-green-300">
-                  Thank you! Your message has been sent successfully.
-                </div>
-              )}
-
-              {/* Error message */}
-              {submitError && (
-                <div className="bg-red-500/20 border border-red-500 rounded-lg p-4 text-red-300">
-                  {submitError}
-                </div>
-              )}
-
-              {/* input group */}
-              <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
-                <input
-                  type="text"
-                  name="name"
-                  placeholder="Name"
-                  className="input flex-1"
-                  required
-                  aria-required
-                  disabled={isSubmitting}
-                />
-                <input
-                  type="email"
-                  name="email"
-                  placeholder="E-mail"
-                  className="input flex-1"
-                  required
-                  aria-required
-                  disabled={isSubmitting}
-                />
-              </div>
+          {/* form */}
+          <motion.form
+            variants={fadeIn("up", 0.4)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="flex-1 flex flex-col gap-4 sm:gap-6 w-full mx-auto"
+            onSubmit={handleSubmit}
+            autoComplete="off"
+            autoCapitalize="off"
+            data-netlify="true"
+          >
+            {/* input group */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-x-6 w-full">
               <input
                 type="text"
-                name="subject"
-                placeholder="Subject"
-                className="input"
+                name="name"
+                placeholder="Name"
+                className="input flex-1"
+                disabled={isLoading}
+                aria-disabled={isLoading}
                 required
                 aria-required
-                disabled={isSubmitting}
               />
-              <textarea
-                name="message"
-                placeholder="Message..."
-                className="textarea min-h-[120px] sm:min-h-[180px]"
+              <input
+                type="email"
+                name="email"
+                placeholder="E-mail"
+                className="input flex-1"
+                disabled={isLoading}
+                aria-disabled={isLoading}
                 required
                 aria-required
-                disabled={isSubmitting}
               />
-              <button
-                type="submit"
-                disabled={isSubmitting || isSubmitted}
-                className="btn rounded-full border border-white/50 w-full sm:w-auto sm:max-w-[170px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group text-sm sm:text-base mx-auto disabled:opacity-50 disabled:cursor-not-allowed"
-              >
-                <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
-                  {isSubmitting
-                    ? "Sending..."
-                    : isSubmitted
-                    ? "Sent!"
-                    : "Let's talk"}
-                </span>
-
-                <BsArrowRight
-                  className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[18px] sm:text-[22px]"
-                  aria-hidden
-                />
-              </button>
-            </motion.form>
-
-            {/* Additional Info */}
-            <motion.div
-              variants={fadeIn("up", 0.5)}
-              initial="hidden"
-              animate="show"
-              exit="hidden"
-              className="mt-8 sm:mt-12 text-center"
+            </div>
+            <input
+              type="text"
+              name="subject"
+              placeholder="Subject"
+              className="input"
+              disabled={isLoading}
+              aria-disabled={isLoading}
+              required
+              aria-required
+            />
+            <textarea
+              name="message"
+              placeholder="Message..."
+              className="textarea min-h-[120px] sm:min-h-[180px]"
+              disabled={isLoading}
+              aria-disabled={isLoading}
+              required
+              aria-required
+            />
+            <button
+              type="submit"
+              className="btn rounded-full border border-white/50 w-full sm:w-auto sm:max-w-[170px] px-6 sm:px-8 py-3 sm:py-4 transition-all duration-300 flex items-center justify-center overflow-hidden hover:border-accent group text-sm sm:text-base mx-auto"
+              disabled={isLoading}
+              aria-disabled={isLoading}
             >
-              <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6">
-                <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">
-                  Interested in Collaboration?
-                </h3>
-                <p className="text-white/60 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
-                  I&apos;m always open to discussing new opportunities,
-                  collaborations, or just having a chat about technology and AI.
-                </p>
-                <p className="text-white/60 text-sm sm:text-base leading-relaxed">
-                  Whether it&apos;s a project idea, research collaboration, or
-                  just want to connect, feel free to reach out!
-                </p>
-              </div>
-            </motion.div>
-          </div>
+              <span className="group-hover:-translate-y-[120%] group-hover:opacity-0 transition-all duration-500">
+                {isLoading ? "Sending..." : "Let's talk"}
+              </span>
+
+              <BsArrowRight
+                className="-translate-y-[120%] opacity-0 group-hover:flex group-hover:-translate-y-0 group-hover:opacity-100 transition-all duration-300 absolute text-[18px] sm:text-[22px]"
+                aria-hidden
+              />
+            </button>
+          </motion.form>
+
+          {/* Additional Info */}
+          <motion.div
+            variants={fadeIn("up", 0.5)}
+            initial="hidden"
+            animate="show"
+            exit="hidden"
+            className="mt-8 sm:mt-12 text-center"
+          >
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 sm:p-6">
+              <h3 className="text-base sm:text-lg font-semibold mb-2 sm:mb-3">
+                Interested in Collaboration?
+              </h3>
+              <p className="text-white/60 mb-3 sm:mb-4 text-sm sm:text-base leading-relaxed">
+                I&apos;m always open to discussing new opportunities,
+                collaborations, or just having a chat about technology and AI.
+              </p>
+              <p className="text-white/60 text-sm sm:text-base leading-relaxed">
+                Whether it&apos;s a project idea, research collaboration, or
+                just want to connect, feel free to reach out!
+              </p>
+            </div>
+          </motion.div>
         </div>
       </div>
-      );
-    </>
+    </div>
   );
 };
 
