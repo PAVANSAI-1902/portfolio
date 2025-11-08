@@ -1,2 +1,2 @@
 User-agent: *
-Allow: /docs/llms.txt
+Disallow: /docs/llms.txt
