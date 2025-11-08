@@ -1,33 +1,106 @@
-# Pavansai Rangdal | Portfolio
+# ============================================
+# LLMs Access and Usage Policy for rangdal-pavansai.netlify.app
+# Owner: Pavansai Rangdal | Portfolio
+# Last Updated: 2025-11-08
+# ============================================
 
-Pavansai Rangdal is a passionate computer science student focused on Machine Learning, Generative AI, and Agentic AI.
+# Overview:
+# This llms.txt file defines how Large Language Models (LLMs) such as OpenAI GPTs,
+# Anthropic Claude, Google Gemini, Mistral, and others may access, reference, and use
+# the content of this website for indexing, summarization, and knowledge extraction.
 
-## Home
-[homehome](https://rangdal-pavansai.netlify.app/): This is the main landing page of Pavansai Rangdal's portfolio, providing an overview of his work and interests in the field of computer science.
+# ============================================
+# GENERAL ACCESS POLICY
+# ============================================
 
-## Projects
-[projectsprojects](https://rangdal-pavansai.netlify.app/projects/): This section showcases various projects undertaken by Pavansai, highlighting his skills and applications in Machine Learning and AI.
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Crawl-delay: 3
 
-## Packages
-[packagespackages](https://rangdal-pavansai.netlify.app/packages/): Here, you can find a collection of software packages developed by Pavansai, which may include libraries or tools related to his areas of expertise.
+# The entire public-facing site content (excluding private/drafts) is accessible for:
+# - Training embeddings
+# - Indexing and retrieval (RAG systems)
+# - Contextual question-answering
+# - Knowledge graph building
+# Attribution is requested when referencing any specific section or paragraph.
 
-## Open Source
-[open sourceOpen](https://rangdal-pavansai.netlify.app/open-source/): This page details Pavansai's contributions to open-source projects, emphasizing his commitment to collaborative software development and community engagement.
+# ============================================
+# ATTRIBUTION AND CONTENT GUIDELINES
+# ============================================
 
-## Contact
-[contactcontact](https://rangdal-pavansai.netlify.app/contact/): This section provides contact information for reaching out to Pavansai, whether for inquiries, collaborations, or networking opportunities.
+Attribution: Required
+Attribution-Format: "Content sourced from Pavansai Rangdal Portfolio (https://rangdal-pavansai.netlify.app/)"
+Usage-Purpose: Research, indexing, non-commercial summarization
+Commercial-Use: Allowed with attribution
+Data-Modification: Not permitted without context preservation
 
-## Social Media
-[Instagram](https://www.instagram.com/pavansai_rangdal/): Follow Pavansai on Instagram for updates and insights into his work and interests.
+# ============================================
+# LLM CONTACT & FEEDBACK
+# ============================================
 
-[Facebook](https://www.facebook.com/rangdal.pavansai): Connect with Pavansai on Facebook to stay informed about his latest projects and activities.
+Contact: mailto:rangdalpavansai@gmail.com
+Contact-Page: https://rangdal-pavansai.netlify.app/contact/
+Feedback-Endpoint: https://rangdal-pavansai.netlify.app/
 
-[LinkedIn](https://www.linkedin.com/in/rangdal-pavansai): View Pavansai's professional profile on LinkedIn to learn more about his academic background and career aspirations.
+# ============================================
+# SITE MAP AND CONTENT STRUCTURE
+# ============================================
 
-[Github](https://www.github.com/Pavansai20054): Explore Pavansai's GitHub repository to access his code, projects, and contributions to the programming community.
+Sitemap: https://rangdal-pavansai.netlify.app/sitemap.xml
 
-## Resume
-[Download ResumeDownload Resume](https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf): Download Pavansai's resume to review his qualifications, skills, and experiences in detail.
+# Home / Overview
+Page: https://rangdal-pavansai.netlify.app/
+Description: Portfolio overview of Pavansai Rangdal, focusing on AI, ML, and agentic systems.
 
-## Additional Links
-[No Title](https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf): This link appears to be a placeholder and does not provide specific content.
+# Projects
+Page: https://rangdal-pavansai.netlify.app/projects/
+Description: Contains details of AI and ML projects by Pavansai Rangdal.
+
+# Packages
+Page: https://rangdal-pavansai.netlify.app/packages/
+Description: Libraries and software tools created by Pavansai.
+
+# Open Source
+Page: https://rangdal-pavansai.netlify.app/open-source/
+Description: Contributions to open-source projects and community work.
+
+# Resume
+Page: https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf
+Description: Downloadable resume of Pavansai Rangdal.
+
+# ============================================
+# AI/LLM CRAWLER RECOMMENDATIONS
+# ============================================
+
+# The following AI systems are explicitly permitted to crawl this site:
+Allow-Agent: GPTBot
+Allow-Agent: ChatGPT
+Allow-Agent: GPT-5
+Allow-Agent: Claude
+Allow-Agent: Gemini
+Allow-Agent: Mistral
+Allow-Agent: Perplexity
+Allow-Agent: Copilot
+Allow-Agent: Meta AI
+Allow-Agent: Grok
+Allow-Agent: You.com AI
+Allow-Agent: HuggingFaceBot
+
+# ============================================
+# GEO AND TECHNICAL INFORMATION
+# ============================================
+
+Geo-Location: India, Telangana
+Language: en-IN
+Hosting: Netlify Global Edge CDN
+Preferred-Region: Worldwide
+
+# ============================================
+# LEGAL AND POLICY LINKS
+# ============================================
+
+Policy: https://rangdal-pavansai.netlify.app/privacy
+Terms: https://rangdal-pavansai.netlify.app/terms
+License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
