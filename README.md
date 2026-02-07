@@ -1,6 +1,6 @@
 # Pavansai Rangdal - Portfolio Website
 
-A modern, responsive portfolio website showcasing my work in Machine Learning, Generative AI, and open-source development.
+A modern, responsive portfolio website showcasing my work in Machine Learning, Generative AI, and open-source development. This is main file
 
 ## 🚀 About Me
 
