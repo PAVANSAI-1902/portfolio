@@ -52,23 +52,27 @@ Sitemap: https://rangdal-pavansai.netlify.app/sitemap.xml
 
 # Home / Overview
 Page: https://rangdal-pavansai.netlify.app/
-Description: Portfolio overview of Pavansai Rangdal, focusing on AI, ML, and agentic systems.
+Description: Portfolio overview of Pavansai Rangdal, focusing on AI, ML, and agentic systems. Includes experience as an AI Backend Engineer Intern at Prodigal AI (Gold Level) building production ML workflows, data pipelines, and orchestration systems, and previous work as a Data Analyst Intern at InnoByte Services.
 
-# Projects
+# Experience & Projects
 Page: https://rangdal-pavansai.netlify.app/projects/
-Description: Contains details of AI and ML projects by Pavansai Rangdal.
+Description: Contains details of AI and ML projects by Pavansai Rangdal including: Car Purchase Rate Estimation (end-to-end ML application), Real-Time Attendance System (computer vision/OpenCV), Xara Multilingual Text-to-Speech System (35+ languages), and open-source contributions to Prodigal Automation.
 
-# Packages
+# Packages & Technical Work
 Page: https://rangdal-pavansai.netlify.app/packages/
-Description: Libraries and software tools created by Pavansai.
+Description: Libraries and software tools created by Pavansai including DataStruct-Kit (PyPI) for extended data structure utilities and logitools (PyPI) for logical and bitwise utilities. Also includes technical assessments with Kubernetes, Airflow, Kafka, and PostgreSQL.
 
 # Open Source
 Page: https://rangdal-pavansai.netlify.app/open-source/
-Description: Contributions to open-source projects and community work.
+Description: Contributions to open-source projects and community work, including automation and data-processing scripts for Prodigal AI internal workflows with 35% reduction in workflow failures.
 
 # Resume
 Page: https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf
-Description: Downloadable resume of Pavansai Rangdal.
+Description: Downloadable resume of Pavansai Rangdal, B.Tech CS (Data Science) student with experience in ML engineering, backend systems, data pipelines, and production ML workflows. Includes internships at Prodigal AI and InnoByte Services, multiple ML projects, publications, and technical skills.
+
+# Technical Skills
+Page: https://rangdal-pavansai.netlify.app/skills/
+Description: Comprehensive technical skills including Python, SQL, Git, ML/AI (Supervised/Unsupervised Learning, ANN, CNN, Generative AI, LLMs), ML Systems (Pandas, NumPy, Scikit-learn, PySpark), Backend & APIs (FastAPI, Flask, Django REST), MLOps (Docker, MLflow, Airflow, Kafka), and Cloud platforms.
 
 # ============================================
 # AI/LLM CRAWLER RECOMMENDATIONS
@@ -96,11 +100,3 @@ Geo-Location: India, Telangana
 Language: en-IN
 Hosting: Netlify Global Edge CDN
 Preferred-Region: Worldwide
-
-# ============================================
-# LEGAL AND POLICY LINKS
-# ============================================
-
-Policy: https://rangdal-pavansai.netlify.app/privacy
-Terms: https://rangdal-pavansai.netlify.app/terms
-License: CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/)
