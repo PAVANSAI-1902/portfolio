@@ -856,7 +856,7 @@ function ProjectsSection() {
             Projects &amp; <span className="gradient-text">Builds</span>
           </h2>
           <p style={{ color: 'var(--dim)', marginBottom: 48, maxWidth: 520 }}>
-            From IEEE research to live PyPI packages — things I've shipped.
+            From IEEE research to live PyPI packages — things I&apos;ve shipped.
           </p>
         </div>
 
@@ -1092,13 +1092,13 @@ function ContactSection() {
 
       <div className="max-w-4xl mx-auto px-6 text-center interactive-layer">
         <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
-          <div className="section-label" style={{ justifyContent: 'center' }}>Let's Connect</div>
+          <div className="section-label" style={{ justifyContent: 'center' }}>Let&apos;s Connect</div>
           <h2 className="section-title mb-6">
             Ready to <span className="gradient-text">Build Together?</span>
           </h2>
           <p style={{ color: 'var(--dim)', fontSize: 18, lineHeight: 1.7, maxWidth: 540, margin: '0 auto 48px' }}>
-            I'm actively looking for full-time engineering roles in AI/ML and backend development.
-            If you're building something interesting, let's talk.
+            I&apos;m actively looking for full-time engineering roles in AI/ML and backend development.
+            If you&apos;re building something interesting, let&apos;s talk.
           </p>
         </div>
 
