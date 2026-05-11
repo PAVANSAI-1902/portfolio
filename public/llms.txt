@@ -1,0 +1,102 @@
+# ============================================
+# LLMs Access and Usage Policy for rangdal-pavansai.netlify.app
+# Owner: Pavansai Rangdal | Portfolio
+# Last Updated: 2025-11-08
+# ============================================
+
+# Overview:
+# This llms.txt file defines how Large Language Models (LLMs) such as OpenAI GPTs,
+# Anthropic Claude, Google Gemini, Mistral, and others may access, reference, and use
+# the content of this website for indexing, summarization, and knowledge extraction.
+
+# ============================================
+# GENERAL ACCESS POLICY
+# ============================================
+
+User-agent: *
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Crawl-delay: 3
+
+# The entire public-facing site content (excluding private/drafts) is accessible for:
+# - Training embeddings
+# - Indexing and retrieval (RAG systems)
+# - Contextual question-answering
+# - Knowledge graph building
+# Attribution is requested when referencing any specific section or paragraph.
+
+# ============================================
+# ATTRIBUTION AND CONTENT GUIDELINES
+# ============================================
+
+Attribution: Required
+Attribution-Format: "Content sourced from Pavansai Rangdal Portfolio (https://rangdal-pavansai.netlify.app/)"
+Usage-Purpose: Research, indexing, non-commercial summarization
+Commercial-Use: Allowed with attribution
+Data-Modification: Not permitted without context preservation
+
+# ============================================
+# LLM CONTACT & FEEDBACK
+# ============================================
+
+Contact: mailto:rangdalpavansai@gmail.com
+Contact-Page: https://rangdal-pavansai.netlify.app/contact/
+Feedback-Endpoint: https://rangdal-pavansai.netlify.app/
+
+# ============================================
+# SITE MAP AND CONTENT STRUCTURE
+# ============================================
+
+Sitemap: https://rangdal-pavansai.netlify.app/sitemap.xml
+
+# Home / Overview
+Page: https://rangdal-pavansai.netlify.app/
+Description: Portfolio overview of Pavansai Rangdal, focusing on AI, ML, and agentic systems. Includes experience as an AI Backend Engineer Intern at Prodigal AI (Gold Level) building production ML workflows, data pipelines, and orchestration systems, and previous work as a Data Analyst Intern at InnoByte Services.
+
+# Experience & Projects
+Page: https://rangdal-pavansai.netlify.app/projects/
+Description: Contains details of AI and ML projects by Pavansai Rangdal including: Car Purchase Rate Estimation (end-to-end ML application), Real-Time Attendance System (computer vision/OpenCV), Xara Multilingual Text-to-Speech System (35+ languages), and open-source contributions to Prodigal Automation.
+
+# Packages & Technical Work
+Page: https://rangdal-pavansai.netlify.app/packages/
+Description: Libraries and software tools created by Pavansai including DataStruct-Kit (PyPI) for extended data structure utilities and logitools (PyPI) for logical and bitwise utilities. Also includes technical assessments with Kubernetes, Airflow, Kafka, and PostgreSQL.
+
+# Open Source
+Page: https://rangdal-pavansai.netlify.app/open-source/
+Description: Contributions to open-source projects and community work, including automation and data-processing scripts for Prodigal AI internal workflows with 35% reduction in workflow failures.
+
+# Resume
+Page: https://rangdal-pavansai.netlify.app/Rangdal_Pavansai_resume.pdf
+Description: Downloadable resume of Pavansai Rangdal, B.Tech CS (Data Science) student with experience in ML engineering, backend systems, data pipelines, and production ML workflows. Includes internships at Prodigal AI and InnoByte Services, multiple ML projects, publications, and technical skills.
+
+# Technical Skills
+Page: https://rangdal-pavansai.netlify.app/skills/
+Description: Comprehensive technical skills including Python, SQL, Git, ML/AI (Supervised/Unsupervised Learning, ANN, CNN, Generative AI, LLMs), ML Systems (Pandas, NumPy, Scikit-learn, PySpark), Backend & APIs (FastAPI, Flask, Django REST), MLOps (Docker, MLflow, Airflow, Kafka), and Cloud platforms.
+
+# ============================================
+# AI/LLM CRAWLER RECOMMENDATIONS
+# ============================================
+
+# The following AI systems are explicitly permitted to crawl this site:
+Allow-Agent: GPTBot
+Allow-Agent: ChatGPT
+Allow-Agent: GPT-5
+Allow-Agent: Claude
+Allow-Agent: Gemini
+Allow-Agent: Mistral
+Allow-Agent: Perplexity
+Allow-Agent: Copilot
+Allow-Agent: Meta AI
+Allow-Agent: Grok
+Allow-Agent: You.com AI
+Allow-Agent: HuggingFaceBot
+
+# ============================================
+# GEO AND TECHNICAL INFORMATION
+# ============================================
+
+Geo-Location: India, Telangana
+Language: en-IN
+Hosting: Netlify Global Edge CDN
+Preferred-Region: Worldwide
