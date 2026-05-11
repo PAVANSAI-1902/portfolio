@@ -179,6 +179,7 @@ body::before {
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
+  pointer-events: auto;
 }
 .btn-ghost:hover {
   border-color: var(--accent);
@@ -382,6 +383,105 @@ body::before {
 .section-3d {
   transform-style: preserve-3d;
   perspective: 1200px;
+}
+
+.section-3d-inner {
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.interactive-layer {
+  position: relative;
+  z-index: 30;
+  pointer-events: auto;
+  transform: translateZ(40px);
+}
+
+.social-link-btn {
+  position: relative;
+  z-index: 40;
+  pointer-events: auto;
+}
+
+.global-3d-stage {
+  position: relative;
+  z-index: 2;
+  perspective: 1400px;
+  transform-style: preserve-3d;
+}
+
+.tech-3d-shell {
+  position: relative;
+  z-index: 2;
+  transform-style: preserve-3d;
+  perspective: 1200px;
+}
+
+.global-3d-backdrop {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.depth-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(2px);
+  opacity: 0.22;
+}
+.depth-orb-a {
+  width: 420px;
+  height: 420px;
+  top: 8%;
+  left: -80px;
+  background: radial-gradient(circle, rgba(0, 229, 160, 0.55), rgba(0, 229, 160, 0.05) 65%, transparent 72%);
+}
+.depth-orb-b {
+  width: 520px;
+  height: 520px;
+  right: -160px;
+  bottom: 6%;
+  background: radial-gradient(circle, rgba(123, 97, 255, 0.5), rgba(123, 97, 255, 0.08) 60%, transparent 75%);
+}
+
+.depth-grid {
+  position: absolute;
+  width: 180vw;
+  height: 46vh;
+  left: -40vw;
+  opacity: 0.16;
+  background-image:
+    linear-gradient(rgba(0, 229, 160, 0.35) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 229, 160, 0.35) 1px, transparent 1px);
+  background-size: 48px 48px;
+  transform-origin: center;
+}
+.depth-grid-a {
+  top: -6vh;
+}
+.depth-grid-b {
+  bottom: -12vh;
+  background-image:
+    linear-gradient(rgba(123, 97, 255, 0.28) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(123, 97, 255, 0.28) 1px, transparent 1px);
+}
+
+@media (max-width: 768px) {
+  .depth-orb-a {
+    width: 260px;
+    height: 260px;
+  }
+  .depth-orb-b {
+    width: 300px;
+    height: 300px;
+    right: -100px;
+  }
+  .depth-grid {
+    opacity: 0.1;
+  }
 }
 
 /* Progress indicator */

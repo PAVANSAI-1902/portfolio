@@ -264,11 +264,39 @@ function Cursor() {
   )
 }
 
+function Global3DBackdrop() {
+  return (
+    <div className="global-3d-backdrop" aria-hidden>
+      <motion.div
+        className="depth-orb depth-orb-a"
+        animate={{ x: [0, 90, -30, 0], y: [0, -60, 40, 0], rotate: [0, 120, 240, 360] }}
+        transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
+      />
+      <motion.div
+        className="depth-orb depth-orb-b"
+        animate={{ x: [0, -70, 20, 0], y: [0, 50, -35, 0], rotate: [0, -120, -240, -360] }}
+        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
+      />
+      <motion.div
+        className="depth-grid depth-grid-a"
+        animate={{ rotateX: [58, 66, 58], rotateZ: [0, 4, 0], y: [0, -16, 0] }}
+        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
+      />
+      <motion.div
+        className="depth-grid depth-grid-b"
+        animate={{ rotateX: [60, 54, 60], rotateZ: [0, -5, 0], y: [0, 14, 0] }}
+        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
+      />
+    </div>
+  )
+}
+
 function ThreeDSection({ id, children, style, className = '' }) {
   const ref = useRef(null)
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [4, 0, -4])
-  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-2, 0, 2])
+  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [8, 0, -8])
+  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-4, 0, 4])
+  const z = useTransform(scrollYProgress, [0, 0.5, 1], [0, 36, 0])
 
   return (
     <motion.section
@@ -277,7 +305,14 @@ function ThreeDSection({ id, children, style, className = '' }) {
       className={`section-3d ${className}`}
       style={{ ...style, rotateX, rotateY }}
     >
-      {children}
+      <motion.div
+        className="section-3d-inner"
+        style={{ z }}
+        animate={{ rotateX: [0, 0.8, 0], rotateY: [0, -0.8, 0] }}
+        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
+      >
+        {children}
+      </motion.div>
     </motion.section>
   )
 }
@@ -391,6 +426,7 @@ function FloatingParticle({ style }) {
         animation: `float-particle ${style.duration}s ease-in-out ${style.delay}s infinite`,
         ...style,
         opacity: 0.4,
+        pointerEvents: 'none',
       }}
     />
   )
@@ -401,6 +437,10 @@ function HeroSection() {
   const { scrollYProgress } = useScroll({ target: ref, offset: ['start start', 'end start'] })
   const y = useTransform(scrollYProgress, [0, 1], [0, 200])
   const opacity = useTransform(scrollYProgress, [0, 0.7], [1, 0])
+  const goToContact = () => {
+    const contact = document.getElementById('contact')
+    if (contact) contact.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  }
 
   const particles = [
     { top: '20%', left: '10%', duration: 7, delay: 0 },
@@ -428,7 +468,7 @@ function HeroSection() {
       <motion.div style={{ y, opacity }} className="max-w-7xl mx-auto px-6 w-full pt-24 pb-16">
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left */}
-          <div>
+          <div className="interactive-layer">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -479,14 +519,15 @@ function HeroSection() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.75 }}
               className="mt-8 flex flex-wrap gap-4"
+              style={{ position: 'relative', zIndex: 30, pointerEvents: 'auto' }}
             >
-              <a href="#projects" className="btn-primary">
+              <a href="#projects" className="btn-primary social-link-btn">
                 View Projects
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </a>
-              <a href="mailto:pavansairangdal@gmail.com" className="btn-ghost">
+              <button type="button" onClick={goToContact} className="btn-ghost social-link-btn">
                 Get In Touch
-              </a>
+              </button>
             </motion.div>
 
             <motion.div
@@ -678,7 +719,12 @@ function HeroSection() {
 function TechMarquee() {
   const doubled = [...TECH_MARQUEE, ...TECH_MARQUEE]
   return (
-    <div style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', padding: '20px 0' }}>
+    <motion.div
+      className="tech-3d-shell"
+      animate={{ rotateX: [0, 1.2, 0], z: [0, 22, 0] }}
+      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', padding: '20px 0' }}
+    >
       <div className="marquee-track" style={{ display: 'flex', gap: 48, whiteSpace: 'nowrap' }}>
         {doubled.map((tech, i) => (
           <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 12, fontSize: 14, fontFamily: 'JetBrains Mono, monospace', color: 'var(--dim)' }}>
@@ -687,7 +733,7 @@ function TechMarquee() {
           </span>
         ))}
       </div>
-    </div>
+    </motion.div>
   )
 }
 
@@ -1044,7 +1090,7 @@ function ContactSection() {
         pointerEvents: 'none',
       }} />
 
-      <div className="max-w-4xl mx-auto px-6 text-center">
+      <div className="max-w-4xl mx-auto px-6 text-center interactive-layer">
         <div ref={ref} className={`reveal ${visible ? 'visible' : ''}`}>
           <div className="section-label" style={{ justifyContent: 'center' }}>Let's Connect</div>
           <h2 className="section-title mb-6">
@@ -1092,14 +1138,14 @@ function ContactSection() {
           initial={{ opacity: 0, y: 20 }}
           viewport={{ once: true }}
           transition={{ delay: 0.2 }}
-          style={{ display: 'flex', justifyContent: 'center', gap: 20, flexWrap: 'wrap' }}
+          style={{ display: 'flex', justifyContent: 'center', gap: 20, flexWrap: 'wrap', position: 'relative', zIndex: 30, pointerEvents: 'auto' }}
         >
           {[
             { label: 'GitHub', href: 'https://github.com/Pavansai20054' },
             { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rangdal-pavansai' },
             { label: 'Twitter/X', href: 'https://x.com/RangdalPavansai' },
           ].map(({ label, href }) => (
-            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="btn-ghost" style={{ fontSize: 14, padding: '10px 20px' }}>
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="btn-ghost social-link-btn" style={{ fontSize: 14, padding: '10px 20px' }}>
               {label}
             </a>
           ))}
@@ -1111,7 +1157,7 @@ function ContactSection() {
 
 function Footer() {
   return (
-    <footer style={{ padding: '28px 24px', borderTop: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 12 }}>
+    <footer style={{ padding: '28px 24px', borderTop: '1px solid var(--border)', display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 12, position: 'relative', zIndex: 2 }}>
       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
         <Image src="/logo.svg" alt="Pavansai logo" width={28} height={28} />
         <span style={{ fontSize: 13, color: 'var(--dim)' }}>Pavansai Rangdal — 2026</span>
@@ -1142,6 +1188,7 @@ export default function Home() {
       </Head>
 
       <Cursor />
+      <Global3DBackdrop />
 
       {/* Progress bar */}
       <motion.div
@@ -1151,7 +1198,7 @@ export default function Home() {
 
       <Navbar active={activeSection} />
 
-      <main>
+      <main className="global-3d-stage">
         <HeroSection />
         <TechMarquee />
         <SkillsSection />
