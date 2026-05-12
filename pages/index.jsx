@@ -16,6 +16,11 @@ const NAV_LINKS = [
 ]
 const SECTION_IDS = NAV_LINKS.map((link) => link.id)
 
+const DOCUMENT_LINKS = {
+  resume: 'https://drive.google.com/file/d/15eOWtwnmv03etlJsj5f-lter03vA5YVm/view?usp=drive_link',
+  experienceLetter: 'https://drive.google.com/file/d/1F9x-tYW3vxLRhgWj_8wiDjfVBaHlFNm9/view?usp=drive_link',
+}
+
 const SKILLS = {
   'AI / ML': [
     { name: 'LangChain / LangGraph', level: 92 },
@@ -135,16 +140,44 @@ const PROJECTS = [
 
 const EXPERIENCE = [
   {
-    role: 'AI Backend Engineer (Intern)',
+    role: 'AI Backend Engineer',
     company: 'Prodigal AI Technologies',
-    period: '2025 – 2026',
+    period: 'Feb 2025 – Mar 2026',
     type: 'Full-time Internship',
+    duration: '1 year 2 months',
+    highlight: 'Primary internship experience',
     points: [
-      'Built multi-agent LLM pipelines using LangChain and CrewAI for the Dhanur platform',
-      'Developed FastAPI/PostgreSQL backends for production-scale AI features',
-      'Designed MLOps pipelines with Airflow and MLflow handling 100k+ records',
-      'Contributed to Flutter-based mobile UI for social media automation features',
-      'Implemented IST-aware scheduling and async task processing systems',
+      'Built and maintained backend services for Dhanur, an AI-powered social media automation platform',
+      'Developed LLM orchestration pipelines and multi-agent workflows for automated content generation',
+      'Fixed critical bugs in Flutter mobile app — IST timezone handling, credits module sync, and OAuth deep link issues on Android',
+      'Designed UI/UX for video recorder and teleprompter feature supporting portrait and landscape camera overlay modes',
+      'Collaborated on AI-driven features targeting content creators and social media influencers',
+    ],
+    accent: 'accent',
+  },
+  {
+    role: 'Full-Stack Developer',
+    company: 'Bhuvih HR Solutions',
+    period: 'Mar 2025 – Aug 2025',
+    type: 'Internship',
+    duration: '6 months',
+    points: [
+      'Developed and maintained full-stack web features for an HR tech platform',
+      'Worked across frontend and backend layers to deliver scalable, user-facing functionality',
+      'Gained hands-on experience with REST APIs, database integration, and responsive UI development',
+    ],
+    accent: 'accent2',
+  },
+  {
+    role: 'Full-Stack Developer',
+    company: 'MotionCut',
+    period: 'Feb 2025 – Mar 2025',
+    type: 'Internship',
+    duration: '2 months',
+    points: [
+      'Built full-stack web applications as part of internship-based project program',
+      'Implemented frontend components and backend logic, strengthening core web development skills',
+      'Delivered project milestones within structured timelines',
     ],
     accent: 'accent',
   },
@@ -152,12 +185,20 @@ const EXPERIENCE = [
 
 const PUBLICATIONS = [
   {
-    title: 'Multi-Agent LLM Framework for Emoji-Based Steganography',
+    title: 'Multi-Agent LLM Framework for Emoji Steganography',
     venue: 'ICFACT-2026 — IEEE International Conference',
     year: '2026',
-    status: 'Accepted',
-    description: 'Novel research on using large language models in a multi-agent architecture to embed semantic information in emoji sequences, combining steganography with AI-driven text enhancement.',
-    tags: ['LLM', 'Multi-Agent', 'Steganography', 'NLP', 'IEEE'],
+    status: 'Published',
+    description: 'Designed a multi-agent system using LLaMA and Qwen LLMs to embed hidden messages inside emoji sequences. Integrated AES-256 encryption for secure, covert data transmission via social media. Proposed novel steganographic approach combining NLP agents with cryptographic standards. Published and presented at the International Conference on Future Advanced Computing Technologies (ICFACT-2026).',
+    tags: ['LLM', 'Multi-Agent', 'Steganography', 'AES-256', 'NLP', 'IEEE', 'Cryptography'],
+  },
+  {
+    title: 'Real-Time Object Detection',
+    venue: 'AIP Conference Proceedings',
+    year: '2025',
+    status: 'Published',
+    description: 'Researched and implemented a real-time object detection pipeline optimized for speed and accuracy. Evaluated model performance across varying lighting and environmental conditions. Published in AIP Conference Proceedings, contributing to applied computer vision research.',
+    tags: ['Computer Vision', 'Object Detection', 'Deep Learning', 'Real-Time', 'AIP'],
   },
 ]
 
@@ -237,7 +278,7 @@ function useActiveSection() {
           setActive(visibleSections[0].target.id)
         }
       },
-      { rootMargin: '-30% 0px -55% 0px', threshold: [0.15, 0.4, 0.7] }
+      { rootMargin: '-20% 0px -50% 0px', threshold: [0.1, 0.3, 0.5] }
     )
 
     sections.forEach((section) => observer.observe(section))
@@ -265,55 +306,16 @@ function Cursor() {
 }
 
 function Global3DBackdrop() {
-  return (
-    <div className="global-3d-backdrop" aria-hidden>
-      <motion.div
-        className="depth-orb depth-orb-a"
-        animate={{ x: [0, 90, -30, 0], y: [0, -60, 40, 0], rotate: [0, 120, 240, 360] }}
-        transition={{ duration: 24, repeat: Infinity, ease: 'linear' }}
-      />
-      <motion.div
-        className="depth-orb depth-orb-b"
-        animate={{ x: [0, -70, 20, 0], y: [0, 50, -35, 0], rotate: [0, -120, -240, -360] }}
-        transition={{ duration: 28, repeat: Infinity, ease: 'linear' }}
-      />
-      <motion.div
-        className="depth-grid depth-grid-a"
-        animate={{ rotateX: [58, 66, 58], rotateZ: [0, 4, 0], y: [0, -16, 0] }}
-        transition={{ duration: 12, repeat: Infinity, ease: 'easeInOut' }}
-      />
-      <motion.div
-        className="depth-grid depth-grid-b"
-        animate={{ rotateX: [60, 54, 60], rotateZ: [0, -5, 0], y: [0, 14, 0] }}
-        transition={{ duration: 14, repeat: Infinity, ease: 'easeInOut' }}
-      />
-    </div>
-  )
+  return null
 }
 
 function ThreeDSection({ id, children, style, className = '' }) {
-  const ref = useRef(null)
-  const { scrollYProgress } = useScroll({ target: ref, offset: ['start end', 'end start'] })
-  const rotateX = useTransform(scrollYProgress, [0, 0.5, 1], [8, 0, -8])
-  const rotateY = useTransform(scrollYProgress, [0, 0.5, 1], [-4, 0, 4])
-  const z = useTransform(scrollYProgress, [0, 0.5, 1], [0, 36, 0])
-
   return (
-    <motion.section
-      ref={ref}
-      id={id}
-      className={`section-3d ${className}`}
-      style={{ ...style, rotateX, rotateY }}
-    >
-      <motion.div
-        className="section-3d-inner"
-        style={{ z }}
-        animate={{ rotateX: [0, 0.8, 0], rotateY: [0, -0.8, 0] }}
-        transition={{ duration: 7, repeat: Infinity, ease: 'easeInOut' }}
-      >
+    <section id={id} className={`section-3d ${className}`} style={style}>
+      <div className="section-3d-inner">
         {children}
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   )
 }
 
@@ -525,6 +527,9 @@ function HeroSection() {
                 View Projects
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
               </a>
+              <a href={DOCUMENT_LINKS.resume} target="_blank" rel="noopener noreferrer" className="btn-ghost social-link-btn">
+                View Resume
+              </a>
               <button type="button" onClick={goToContact} className="btn-ghost social-link-btn">
                 Get In Touch
               </button>
@@ -554,20 +559,21 @@ function HeroSection() {
             </motion.div>
           </div>
 
-          {/* Right — 3D Code Card */}
+          {/* Right — Code Card */}
           <motion.div
-            initial={{ opacity: 0, x: 60, rotateY: 15 }}
-            animate={{ opacity: 1, x: 0, rotateY: 0 }}
+            initial={{ opacity: 0, x: 60 }}
+            animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 1, delay: 0.4, ease: [0.25, 0.4, 0.25, 1] }}
-            className="hidden lg:block perspective-wrapper"
+            className="hidden lg:block"
+            style={{ position: 'relative', padding: '10px 12px' }}
           >
             <div style={{
               background: 'var(--surface)',
               border: '1px solid var(--border)',
               borderRadius: 20,
               overflow: 'hidden',
-              transform: 'rotateX(2deg) rotateY(-4deg)',
-              boxShadow: '0 40px 80px rgba(0,0,0,0.4), 0 0 0 1px rgba(0,229,160,0.05)',
+              transform: 'rotateX(0.8deg) rotateY(-1deg)',
+              boxShadow: '0 20px 50px rgba(0,0,0,0.3), 0 0 0 1px rgba(0,229,160,0.04)',
             }}>
               {/* Window chrome */}
               <div style={{ padding: '14px 20px', borderBottom: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -620,14 +626,9 @@ function HeroSection() {
                   )
                 })}
 
-                {/* Blinking cursor */}
                 <div style={{ lineHeight: 1.8, display: 'flex', alignItems: 'center', gap: 4, marginTop: 8 }}>
                   <span style={{ color: 'var(--dim)', fontFamily: 'JetBrains Mono, monospace' }}>  {'>'} </span>
-                  <motion.span
-                    animate={{ opacity: [1, 0, 1] }}
-                    transition={{ duration: 1.2, repeat: Infinity }}
-                    style={{ display: 'inline-block', width: 8, height: 16, background: 'var(--accent)', borderRadius: 2 }}
-                  />
+                  <span style={{ display: 'inline-block', width: 8, height: 16, background: 'var(--accent)', borderRadius: 2 }} />
                 </div>
               </div>
 
@@ -654,13 +655,14 @@ function HeroSection() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               style={{
                 position: 'absolute',
-                top: -24,
-                right: -24,
+                top: 18,
+                right: 20,
                 background: 'var(--panel)',
                 border: '1px solid rgba(0,229,160,0.3)',
                 borderRadius: 12,
                 padding: '12px 16px',
                 boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                zIndex: 3,
               }}
             >
               <div style={{ fontSize: 22, fontFamily: 'Clash Display, sans-serif', fontWeight: 600, color: 'var(--accent)' }}>1</div>
@@ -672,13 +674,14 @@ function HeroSection() {
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
               style={{
                 position: 'absolute',
-                bottom: 20,
-                left: -28,
+                bottom: 28,
+                left: 20,
                 background: 'var(--panel)',
                 border: '1px solid rgba(123,97,255,0.3)',
                 borderRadius: 12,
                 padding: '12px 16px',
                 boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
+                zIndex: 3,
               }}
             >
               <div style={{ fontSize: 22, fontFamily: 'Clash Display, sans-serif', fontWeight: 600, color: 'var(--accent2)' }}>2</div>
@@ -721,8 +724,8 @@ function TechMarquee() {
   return (
     <motion.div
       className="tech-3d-shell"
-      animate={{ rotateX: [0, 1.2, 0], z: [0, 22, 0] }}
-      transition={{ duration: 8, repeat: Infinity, ease: 'easeInOut' }}
+      animate={{ rotateX: [0, 0.6, 0], y: [0, -2, 0] }}
+      transition={{ duration: 9, repeat: Infinity, ease: 'easeInOut' }}
       style={{ borderTop: '1px solid var(--border)', borderBottom: '1px solid var(--border)', overflow: 'hidden', padding: '20px 0' }}
     >
       <div className="marquee-track" style={{ display: 'flex', gap: 48, whiteSpace: 'nowrap' }}>
@@ -907,24 +910,30 @@ function ExperienceSection() {
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: i * 0.2 }}
-              style={{ position: 'relative', marginBottom: 48 }}
+              style={{ position: 'relative', marginBottom: 48, pointerEvents: 'auto' }}
             >
               <div className="timeline-dot" style={{ position: 'absolute', left: -28 }} />
 
-              <div className="card p-8">
-                <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: 12, marginBottom: 20 }}>
-                  <div>
-                    <h3 style={{ fontSize: 22, fontWeight: 600, fontFamily: 'Clash Display, sans-serif', color: 'var(--text)' }}>
-                      {exp.role}
-                    </h3>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginTop: 6 }}>
-                      <span style={{ color: 'var(--accent)', fontWeight: 600, fontSize: 15 }}>{exp.company}</span>
+              <div className="card p-8 experience-card">
+                <div>
+                  <h3 style={{ fontSize: 22, fontWeight: 600, fontFamily: 'Clash Display, sans-serif', color: 'var(--text)', marginBottom: 12 }}>
+                    {exp.role}
+                  </h3>
+                  <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, flexWrap: 'wrap' }}>
+                      <span style={{ color: `var(--${exp.accent || 'accent'})`, fontWeight: 600, fontSize: 15 }}>{exp.company}</span>
                       <span className="tag text-xs">{exp.type}</span>
+                      {exp.highlight && <span className="tag-purple text-xs">{exp.highlight}</span>}
                     </div>
+                    <span style={{ fontSize: 13, color: 'var(--dim)', fontFamily: 'JetBrains Mono, monospace', background: 'var(--panel)', padding: '6px 14px', borderRadius: 8, border: '1px solid var(--border)', whiteSpace: 'nowrap' }}>
+                      {exp.period}
+                    </span>
                   </div>
-                  <span style={{ fontSize: 13, color: 'var(--dim)', fontFamily: 'JetBrains Mono, monospace', background: 'var(--panel)', padding: '6px 14px', borderRadius: 8, border: '1px solid var(--border)' }}>
-                    {exp.period}
-                  </span>
+                  {exp.duration && (
+                    <div style={{ fontSize: 12, color: 'var(--dim)', fontFamily: 'JetBrains Mono, monospace', marginBottom: 12 }}>
+                      {exp.duration}
+                    </div>
+                  )}
                 </div>
 
                 <ul style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
@@ -935,6 +944,20 @@ function ExperienceSection() {
                     </li>
                   ))}
                 </ul>
+
+                <div style={{ marginTop: 20, display: 'flex', flexWrap: 'wrap', gap: 12 }}>
+                  {exp.highlight && (
+                    <a
+                      href={DOCUMENT_LINKS.experienceLetter}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost social-link-btn"
+                      style={{ fontSize: 13, padding: '10px 16px' }}
+                    >
+                      📄 Experience Letter
+                    </a>
+                  )}
+                </div>
               </div>
             </motion.div>
           ))}
@@ -986,44 +1009,46 @@ function PublicationsSection() {
           </h2>
         </div>
 
-        {PUBLICATIONS.map((pub, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.7 }}
-            className="card p-8"
-            style={{ background: 'linear-gradient(135deg, var(--panel), var(--surface))', borderColor: 'rgba(123,97,255,0.3)' }}
-          >
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, marginBottom: 20 }}>
-              <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
-                <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(123,97,255,0.1)', border: '1px solid rgba(123,97,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>
-                  📄
-                </div>
-                <div>
-                  <span className="tag-purple text-xs" style={{ marginBottom: 4 }}>{pub.status}</span>
-                  <div style={{ fontSize: 11, color: 'var(--dim)', fontFamily: 'JetBrains Mono, monospace', marginTop: 4 }}>{pub.year}</div>
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+          {PUBLICATIONS.map((pub, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="card p-8"
+              style={{ background: 'linear-gradient(135deg, var(--panel), var(--surface))', borderColor: 'rgba(123,97,255,0.3)' }}
+            >
+              <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'space-between', alignItems: 'flex-start', gap: 16, marginBottom: 20 }}>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
+                  <div style={{ width: 44, height: 44, borderRadius: 12, background: 'rgba(123,97,255,0.1)', border: '1px solid rgba(123,97,255,0.3)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 22 }}>
+                    📄
+                  </div>
+                  <div>
+                    <span className="tag-purple text-xs" style={{ marginBottom: 4 }}>{pub.status}</span>
+                    <div style={{ fontSize: 11, color: 'var(--dim)', fontFamily: 'JetBrains Mono, monospace', marginTop: 4 }}>{pub.year}</div>
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <h3 style={{ fontSize: 22, fontWeight: 600, fontFamily: 'Clash Display, sans-serif', color: 'var(--text)', marginBottom: 8, lineHeight: 1.3 }}>
-              {pub.title}
-            </h3>
-            <div style={{ fontSize: 13, color: 'var(--accent2)', fontWeight: 600, marginBottom: 16 }}>
-              {pub.venue}
-            </div>
-            <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.7, marginBottom: 20 }}>
-              {pub.description}
-            </p>
-            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
-              {pub.tags.map(t => (
-                <span key={t} className="tag-purple">{t}</span>
-              ))}
-            </div>
-          </motion.div>
-        ))}
+              <h3 style={{ fontSize: 22, fontWeight: 600, fontFamily: 'Clash Display, sans-serif', color: 'var(--text)', marginBottom: 8, lineHeight: 1.3 }}>
+                {pub.title}
+              </h3>
+              <div style={{ fontSize: 13, color: 'var(--accent2)', fontWeight: 600, marginBottom: 16 }}>
+                {pub.venue}
+              </div>
+              <p style={{ fontSize: 14, color: 'var(--dim)', lineHeight: 1.7, marginBottom: 20 }}>
+                {pub.description}
+              </p>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
+                {pub.tags.map(t => (
+                  <span key={t} className="tag-purple">{t}</span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </div>
       </div>
     </ThreeDSection>
   )
@@ -1144,6 +1169,8 @@ function ContactSection() {
             { label: 'GitHub', href: 'https://github.com/Pavansai20054' },
             { label: 'LinkedIn', href: 'https://www.linkedin.com/in/rangdal-pavansai' },
             { label: 'Twitter/X', href: 'https://x.com/RangdalPavansai' },
+            { label: 'Resume', href: DOCUMENT_LINKS.resume },
+            { label: 'Experience Letter', href: DOCUMENT_LINKS.experienceLetter },
           ].map(({ label, href }) => (
             <a key={label} href={href} target="_blank" rel="noopener noreferrer" className="btn-ghost social-link-btn" style={{ fontSize: 14, padding: '10px 20px' }}>
               {label}
@@ -1175,6 +1202,24 @@ export default function Home() {
   const { scrollYProgress } = useScroll()
   const scaleX = useSpring(scrollYProgress, { stiffness: 100, damping: 30 })
   const activeSection = useActiveSection()
+
+  useEffect(() => {
+    if (typeof window === 'undefined') return
+
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual'
+    }
+
+    if (window.location.hash) {
+      window.history.replaceState(null, '', `${window.location.pathname}${window.location.search}`)
+    }
+
+    const resetScroll = () => window.scrollTo({ top: 0, left: 0, behavior: 'auto' })
+    resetScroll()
+    const frameId = window.requestAnimationFrame(resetScroll)
+
+    return () => window.cancelAnimationFrame(frameId)
+  }, [])
 
   return (
     <>

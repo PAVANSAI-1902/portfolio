@@ -102,14 +102,14 @@ body::before {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 16px;
-  transition: transform 0.35s ease, border-color 0.35s ease, box-shadow 0.35s ease;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  cursor: default;
   transform-style: preserve-3d;
-  will-change: transform;
 }
 .card:hover {
   border-color: rgba(0, 229, 160, 0.3);
-  transform: translateY(-8px) rotateX(4deg) rotateY(-4deg);
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(0, 229, 160, 0.1);
+  transform: translateY(-4px) rotateX(1deg) rotateY(-1deg);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(0, 229, 160, 0.08);
 }
 
 /* Tag/badge */
@@ -185,6 +185,46 @@ body::before {
   border-color: var(--accent);
   color: var(--accent);
   transform: translateY(-2px);
+}
+
+.experience-letter-btn {
+  font-size: 13px;
+  padding: 10px 16px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 100px;
+  font-family: 'Cabinet Grotesk', sans-serif;
+  font-weight: 700;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  position: relative;
+  z-index: 101;
+  pointer-events: auto;
+}
+.experience-letter-btn:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateY(-1px);
+}
+
+.experience-card {
+  caret-color: transparent;
+  cursor: default;
+}
+.experience-card:hover {
+  transform: translateY(-2px);
+}
+.experience-card .social-link-btn {
+  cursor: pointer;
+}
+.experience-card .social-link-btn:hover,
+.experience-card .social-link-btn:active {
+  transform: none;
 }
 
 /* Section heading */
@@ -376,25 +416,20 @@ body::before {
 }
 
 /* 3D perspective */
-.perspective-wrapper {
-  perspective: 1000px;
-}
-
 .section-3d {
   transform-style: preserve-3d;
-  perspective: 1200px;
+  perspective: 900px;
 }
 
 .section-3d-inner {
   transform-style: preserve-3d;
-  will-change: transform;
 }
 
 .interactive-layer {
   position: relative;
   z-index: 30;
   pointer-events: auto;
-  transform: translateZ(40px);
+  transform: translateZ(8px);
 }
 
 .social-link-btn {
@@ -406,7 +441,7 @@ body::before {
 .global-3d-stage {
   position: relative;
   z-index: 2;
-  perspective: 1400px;
+  perspective: 900px;
   transform-style: preserve-3d;
 }
 
@@ -414,10 +449,11 @@ body::before {
   position: relative;
   z-index: 2;
   transform-style: preserve-3d;
-  perspective: 1200px;
+  perspective: 700px;
 }
 
 .global-3d-backdrop {
+  display: none;
   position: fixed;
   inset: 0;
   pointer-events: none;
@@ -470,6 +506,21 @@ body::before {
 }
 
 @media (max-width: 768px) {
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(0, 229, 160, 0.08);
+  }
+  .section-3d,
+  .section-3d-inner,
+  .global-3d-stage,
+  .tech-3d-shell,
+  .global-3d-backdrop {
+    transform-style: flat;
+    perspective: none;
+  }
+  .interactive-layer {
+    transform: none;
+  }
   .depth-orb-a {
     width: 260px;
     height: 260px;
