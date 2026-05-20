@@ -206,38 +206,48 @@ const CERTIFICATIONS = [
   {
     title: 'Generative AI with Large Language Models',
     issuer: 'Coursera / DeepLearning.AI',
-    year: '2024',
+    year: 'Jan 2024',
     icon: '🤖',
   },
   {
     title: 'Code Unnati (SAP) — AI/ML Program',
     issuer: 'EduNet Foundation × SAP',
-    year: '2025',
+    year: 'Apr 2026',
     icon: '🏅',
+    link: 'https://drive.google.com/file/d/1GkDK96PXRoMjqA_EotNf-rgRStoAvIvg/view?usp=sharing',
   },
   {
     title: 'Machine Learning Specialization',
     issuer: 'Coursera / Stanford Online',
-    year: '2023',
+    year: 'Jun 2023',
     icon: '🎓',
   },
   {
-    title: 'Python for Data Science and AI',
-    issuer: 'IBM / Coursera',
-    year: '2024',
-    icon: '🐍',
+    title: 'Data Science & Analytics',
+    issuer: 'Google',
+    year: 'Feb 2024',
+    icon: '📊',
+    link: 'https://drive.google.com/file/d/18iTI7SoS0h6mKAAGnjHW4ltm-RTCMPS9/view?usp=drive_link',
   },
   {
     title: 'Deep Learning Specialization',
     issuer: 'DeepLearning.AI',
-    year: '2024',
+    year: 'Mar 2024',
     icon: '🧠',
   },
   {
-    title: 'LangChain & Vector Databases in Production',
-    issuer: 'Activeloop',
-    year: '2024',
-    icon: '⛓️',
+    title: 'Docker & Kubernetes',
+    issuer: 'Coursera',
+    year: 'Nov 2024',
+    icon: '🐳',
+    link: 'https://drive.google.com/file/d/1nY2SMMBMNvZFC1KOTQ8QuJuX2kC8Ms_Q/view?usp=sharing',
+  },
+  {
+    title: 'Linux Unhatched',
+    issuer: 'Cisco',
+    year: 'May 2026',
+    icon: '🐧',
+    link: 'https://drive.google.com/file/d/1LL-6jIEy_97V_5VCb2XtpDvCNs4fDKij/view?usp=drive_link',
   },
 ]
 
@@ -654,38 +664,26 @@ function HeroSection() {
               animate={{ y: [0, -8, 0] }}
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
               style={{
-                position: 'absolute',
-                top: 18,
-                right: 20,
-                background: 'var(--panel)',
-                border: '1px solid rgba(0,229,160,0.3)',
-                borderRadius: 12,
-                padding: '12px 16px',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-                zIndex: 3,
+                top: 'clamp(12px, 2vw, 24px)',
+                right: 'clamp(12px, 2vw, 24px)',
               }}
+              className="hero-stat-card hero-stat-card--accent"
             >
-              <div style={{ fontSize: 22, fontFamily: 'Clash Display, sans-serif', fontWeight: 600, color: 'var(--accent)' }}>1</div>
-              <div style={{ fontSize: 11, color: 'var(--dim)' }}>IEEE Paper</div>
+              <div className="hero-stat-value">1</div>
+              <div className="hero-stat-label">IEEE Paper</div>
             </motion.div>
 
             <motion.div
               animate={{ y: [0, 8, 0] }}
               transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut', delay: 1 }}
               style={{
-                position: 'absolute',
-                bottom: 28,
-                left: 20,
-                background: 'var(--panel)',
-                border: '1px solid rgba(123,97,255,0.3)',
-                borderRadius: 12,
-                padding: '12px 16px',
-                boxShadow: '0 8px 32px rgba(0,0,0,0.3)',
-                zIndex: 3,
+                bottom: 'clamp(16px, 3vw, 32px)',
+                left: 'clamp(12px, 2vw, 24px)',
               }}
+              className="hero-stat-card hero-stat-card--accent2"
             >
-              <div style={{ fontSize: 22, fontFamily: 'Clash Display, sans-serif', fontWeight: 600, color: 'var(--accent2)' }}>2</div>
-              <div style={{ fontSize: 11, color: 'var(--dim)' }}>PyPI Packages</div>
+              <div className="hero-stat-value">2</div>
+              <div className="hero-stat-label">PyPI Packages</div>
             </motion.div>
           </motion.div>
         </div>
@@ -1086,6 +1084,19 @@ function CertificationsSection() {
                 <span style={{ fontSize: 11, fontFamily: 'JetBrains Mono, monospace', color: 'var(--accent)', background: 'rgba(0,229,160,0.06)', border: '1px solid rgba(0,229,160,0.15)', borderRadius: 6, padding: '2px 8px' }}>
                   {cert.year}
                 </span>
+                {cert.link && (
+                  <div style={{ marginTop: 10 }}>
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="btn-ghost social-link-btn"
+                      style={{ fontSize: 12, padding: '6px 10px' }}
+                    >
+                      🔗 See certificate
+                    </a>
+                  </div>
+                )}
               </div>
             </motion.div>
           ))}

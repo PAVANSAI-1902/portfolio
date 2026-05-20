@@ -112,6 +112,44 @@ body::before {
   box-shadow: 0 12px 28px rgba(0, 0, 0, 0.24), 0 0 0 1px rgba(0, 229, 160, 0.08);
 }
 
+/* Hero stat cards */
+.hero-stat-card {
+  position: absolute;
+  min-width: clamp(96px, 10vw, 140px);
+  text-align: center;
+  background: linear-gradient(135deg, rgba(13, 17, 23, 0.92), rgba(16, 20, 28, 0.75));
+  border-radius: 14px;
+  padding: clamp(8px, 1vw, 12px) clamp(10px, 1.3vw, 16px);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(0, 229, 160, 0.08);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  z-index: 3;
+}
+.hero-stat-card--accent {
+  --stat-color: var(--accent);
+  border: 1px solid rgba(0, 229, 160, 0.35);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 14px rgba(0, 229, 160, 0.14);
+}
+.hero-stat-card--accent2 {
+  --stat-color: var(--accent2);
+  border: 1px solid rgba(123, 97, 255, 0.35);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35), 0 0 14px rgba(123, 97, 255, 0.14);
+}
+.hero-stat-value {
+  font-size: clamp(18px, 2.2vw, 24px);
+  line-height: 1;
+  font-family: 'Clash Display', sans-serif;
+  font-weight: 600;
+  color: var(--stat-color, var(--accent));
+}
+.hero-stat-label {
+  margin-top: 6px;
+  font-size: clamp(9px, 0.95vw, 11px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--dim);
+}
+
 /* Tag/badge */
 .tag {
   display: inline-flex;
