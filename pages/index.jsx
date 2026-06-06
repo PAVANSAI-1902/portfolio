@@ -17,7 +17,7 @@ const NAV_LINKS = [
 const SECTION_IDS = NAV_LINKS.map((link) => link.id)
 
 const DOCUMENT_LINKS = {
-  resume: 'https://drive.google.com/file/d/15eOWtwnmv03etlJsj5f-lter03vA5YVm/view?usp=drive_link',
+  resume: 'https://drive.google.com/file/d/1PWne1e-dDvLSK4brJnDERvjNHTmlAOVI/view?usp=drive_link',
   experienceLetter: 'https://drive.google.com/file/d/1F9x-tYW3vxLRhgWj_8wiDjfVBaHlFNm9/view?usp=drive_link',
 }
 
