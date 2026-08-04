@@ -1,2 +1,22 @@
 User-agent: *
-Allow: /docs/llms.txt
+Allow: /
+Disallow: /private/
+Disallow: /drafts/
+Disallow: /_next/
+Disallow: /api/
+
+Sitemap: https://rangdalpavansai.dev/sitemap.xml
+Host: rangdalpavansai.dev
+
+# AI assistants and search engines
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
